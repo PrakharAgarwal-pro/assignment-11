@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    char str[100], seq[4];
+    cout << "Enter a string: ";
+    cin.getline(str, 100);
+    cout << "Enter a sequence of 3 characters: ";
+    cin >> seq;
+
+    int len = strlen(str);
+    for (int i = 0; i <= len - 3; i++) {
+        if (strncmp(&str[i], seq, 3) == 0) {
+            cout << "Sequence found at position " << i << endl;
+            return 0;
+        }
+    }
+
+    cout << "Sequence not found" << endl;
+    return 0;
+}
