@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+struct Student {
+    string name;
+    int age;
+    string gender;
+    string branch;
+};
+
+int main() {
+    Student *students = new Student[100];
+    for (int i = 0; i < 100; i++) {
+        students[i].name = "Prakhar";
+        students[i].age = 18;
+        students[i].gender = "Male";
+        students[i].branch = "Chemical Engineering";
+    }
+
+    Student *newstudents = new Student[200];
+    for (int i = 0; i < 100; i++) {
+        newstudents[i] = students[i];
+    }
+
+    delete[] students;
+    students = newstudents;
+
+    for (int i = 0; i < 200; i++) {
+        cout << "Name: " << students[i].name << ", ";
+        cout << "Age: " << students[i].age << ", ";
+        cout << "Gender: " << students[i].gender << ", ";
+        cout << "Branch: " << students[i].branch << endl;
+    }
+
+    delete[] newstudents;
+    return 0;
+}
